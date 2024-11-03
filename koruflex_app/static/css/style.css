@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+:root{
+    --light: #E2F1E7;
+    --secondary: #387478;
+    --blue: #123C69;
+    --dark: #243642;
+}
+
+.container {
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.header {
+    padding: 20px 0;
+    background-color: var(--secondary);
+}
+
+.menu-button {
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid var(--dark);
+    border-radius: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title {
+    display: block;
+    font-size: 16px;
+    justify-content: center;
+    text-align: center;
+    color: var(--light);
+    margin-top: -25px;
+}
+
+#menu-list {
+    display: none;
+    position: relative;
+    padding: 20px  0;
+    background-color: var(--blue);
+}    
+
+.menu-list .menu-list__item {
+    list-style: none;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-list__link {
+    text-decoration: none;
+    color: var(--light);
+}
+
+.menu-list__link img {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+
+.main {
+    background-color: var(--light);
+    min-height: 100vh;
+}
+
+.categories, .foryou, .film-detail, .auth {
+    padding: 30px 0;
+     
+}
+
+.categories-list, .foryou-list {
+    margin: 20px  0 ;
+}
+
+.category-item {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--light);
+    background-color: var(--secondary);
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: 0.3s ease-in-out;
+}
+
+.category-item:hover, .dark-button:hover {
+    background-color: var(--blue);
+}
+
+.button-success:hover {
+    background-color: var(--dark);
+}
+
+.foryou-card {
+    background-color: var(--secondary);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding-right: 0;
+}
+
+.foryou-card__title, .foryou-card__year {
+    color: var(--dark);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.foryou-card__title {
+    font-weight: 400;
+}
+
+.foryou-card__year {
+    font-weight: 600;
+}
+
+.foryou-photo, .foryou-photo2 {
+    border-radius: 10px;
+    display: block;
+    width: 250px;
+    height: 125px;
+    margin-right: 0; 
+    margin-left: auto; 
+    margin-top: -108px;
+    margin-bottom: -15px;
+}
+
+.dark-button, .button-success {
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4 px 0;
+    background-color: var(--dark);  
+    color: var(--light);
+    padding: 10px 35px;
+    border-radius: 30px;
+    transition: 0.3s ease-in-out;
+    border: none;
+}
+
+.button-success {
+    background-color: var(--blue);
+    color: var(--light);
+    font-weight: 600;
+    padding: 10px 55px;
+    margin: 20px 0;
+}
+
+.film-detail .title {
+    margin-bottom: 10px;
+}
+
+.film-detail__janre {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.film-detail__content {
+    font-size: 12px;
+    color: var(--dark);
+    margin-bottom: 20px ;
+}
+
+.film-detail__video {
+    margin-top: 10px;
+    margin-bottom: 10px;    
+}
+
+.help {
+    font-size: 12px;
+    text-align: center;
+    color: var(--dark);
+}
+
+.help-link {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.auth form{
+    margin: 20px 0;
+}
+
+.auth label {
+    display: block;
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.auth input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.helptext {
+    display: none;
+}
+
+.access {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vh;
+}
+
+.access .title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.access .dark-text {
+    color: var(--dark);
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.access-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}

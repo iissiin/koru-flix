@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}История просмотра{% endblock %}
+
+
+{% block content %}
+<section class="foryou">
+    <div class="container">
+        <h2 class="title">История</h2>
+        <div class="foryou-list">
+            {% for history in histories %}
+            <div class="foryou-card">
+                <h3 class="foryou-card__title">{{ history.title }}</h3>
+                <h3 class="foryou-card__year">{{ history.yearRelese }}</h3>
+                <h3 class="foryou-card__title">{{ history.category }}</h3> 
+                <a href="{% url 'history_detail_page' pk=history.pk %}" class="dark-button">▶ Продолжить</a>
+                <img class="foryou-photo" src="{{ history.promoPhoto.url }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

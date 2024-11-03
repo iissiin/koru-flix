@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<section class="foryou">
+    <div class="container">
+        <h2 class="title">{{ category.name }}</h2>
+        <div class="foryou-list">
+            {% for film in films %}
+            <div class="foryou-card">
+                <h3 class="foryou-card__title">{{ film.title }}</h3>
+                <h3 class="foryou-card__year">{{ film.year }}</h3>
+                <h3 class="foryou-card__title">{{ film.category }}</h3> 
+                <a href="{% url 'film_detail_page' pk=film.pk %}" class="dark-button">Смотреть</a>
+                <img class="foryou-photo" src="{{ film.promoPhoto.url }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="access">
+    <div class="container">
+        <h1 class="title">Вы анонимный пользователь</h1>
+        <p class="dark-text">Авторизируйтесь для дальнешей работы с приложением</p>
+        <div class="access-action">
+            <a href="{% url 'sign_up_page' %}">Регистрация</a>
+            <a href="{% url 'login_page' %}">Вход</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

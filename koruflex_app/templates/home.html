@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+
+{% block content %}
+<section class="categories">
+    <div class="container">
+        <h2 class="title">Жанры</h2>
+        <div class="categories-list">
+            <a href="{% url 'films_page' %}" class="category-item">Все</a>
+            {% for category in categories %} 
+            <a href="{% url 'films_by_category_page' slug=category.slug %}" class="category-item">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="foryou">
+    <div class="container">
+        <h2 class="title">Рекомендации</h2>
+        <div class="foryou-list">
+            {% for film in films %}
+            <div class="foryou-card">
+                <h3 class="foryou-card__title">{{ film.title }}</h3>
+                <h3 class="foryou-card__year">{{ film.year }}</h3>
+                <h3 class="foryou-card__title">{{ film.category }}</h3> 
+                <a href="{% url 'film_detail_page' pk=film.pk %}" class="dark-button">Смотреть</a>
+                <img class="foryou-photo" src="{{ film.promoPhoto.url }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

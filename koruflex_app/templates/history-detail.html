@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ history.title }}{% endblock %}
+
+
+{% block content %}
+<section class="film-detail">
+    <div class="container">
+        <h1 class="title">{{ history.title }} ▶ Продолжить просмотр</h1>
+        <h2 class="title">{{ history.yearRelese }}</h2>
+        <h3 class="film-detail__janre">{{ history.category }}</h3>
+        <div class="film-detail__video">
+            <iframe width="100%" height="315" src="{{ history.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="film-detail__content">{{ history.description }}</p>
+    </div>
+</section>
+{% endblock %}

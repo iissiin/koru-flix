@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static './css/style.css' %}"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <button class="menu-button" onclick="menuAction()">
+                <img src="{% static './images/menuu.svg' %}" alt="menu nutton">
+            </button>
+            <span class="header-title">KöruFlix</span>
+        </div>
+    </header>
+    <div id="menu-list" style="display: none;">
+        <div class="container">
+            <ul class="menu-list">
+                <li class="menu-list__item">
+                    <a href="{% url 'home_page' %}" class="menu-list__link">
+                        <img src="{% static './images/list/home4.svg' %}" alt="Home">
+                        <span>Главная</span>
+                    </a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url 'films_page' %}" class="menu-list__link">
+                        <img src="{% static './images/list/recomend.svg' %}" alt="for you page">
+                        <span>Рекомендации</span>
+                    </a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url 'categories_page' %}" class="menu-list__link">
+                        <img src="{% static './images/list/genre.svg' %}" alt="genres">
+                        <span>Жанры</span>
+                    </a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url 'histories_page' %}" class="menu-list__link">
+                        <img src="{% static './images/list/watched.svg' %}" alt="watched">
+                        <span>Просмотренные</span>
+                    </a>
+                </li>
+                {% if not user.is_authenticated %}
+                <li class="menu-list__item">
+                    <a href="{% url 'sign_up_page' %}" class="menu-list__link">
+                        <img src="{% static './images/list/signup.svg' %}" alt="sigh up">
+                        <span>Регистрация</span>
+                    </a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url 'login_page' %}" class="menu-list__link">
+                        <img src="{% static './images/list/login.svg' %}" alt="log in">
+                        <span>Вход</span>
+                    </a>
+                </li>
+                {% else %}
+                <li class="menu-list__item">
+                    <a href="{% url 'logout_action' %}" class="menu-list__link">
+                        <img src="{% static './images/list/logout.svg' %}" alt="log out">
+                        <span>{{ user.username }}: Выход</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <script src="{% static './js/script.js' %}"></script>
+</body>
+</html>
